@@ -1,0 +1,3 @@
+# Core
+
+Núcleo do framework.

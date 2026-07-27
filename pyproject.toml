@@ -1,0 +1,81 @@
+[build-system]
+requires = ["setuptools>=68", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "ai-brain-framework"
+version = "1.0.0"
+description = "Professional framework with digital brain for building websites and web systems"
+readme = "README.md"
+license = {text = "MIT"}
+authors = [
+    {name = "AI-Brain-Framework Team"}
+]
+keywords = ["framework", "ai", "brain", "security", "web", "architecture"]
+classifiers = [
+    "Development Status :: 5 - Production/Stable",
+    "Intended Audience :: Developers",
+    "License :: OSI Approved :: MIT License",
+    "Operating System :: OS Independent",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.8",
+    "Programming Language :: Python :: 3.9",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+    "Topic :: Software Development :: Libraries :: Python Modules",
+    "Topic :: Internet :: WWW/HTTP :: HTTP Servers",
+    "Topic :: Security",
+]
+requires-python = ">=3.8"
+dependencies = []
+
+[project.optional-dependencies]
+dev = [
+    "pytest>=7.0",
+    "pytest-cov>=4.0",
+    "mypy>=1.0",
+    "ruff>=0.1.0",
+]
+
+[project.urls]
+Homepage = "https://github.com/ai-brain-framework/ai-brain-framework"
+Repository = "https://github.com/ai-brain-framework/ai-brain-framework"
+Documentation = "https://github.com/ai-brain-framework/ai-brain-framework/blob/main/README.md"
+Issues = "https://github.com/ai-brain-framework/ai-brain-framework/issues"
+
+[project.scripts]
+ai-brain = "tools.cli:main"
+
+[tool.setuptools]
+packages = [
+    "framework",
+    "framework.core",
+    "framework.engines",
+    "framework.standards",
+]
+
+[tool.setuptools.package-data]
+framework = ["py.typed"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+python_files = ["test_*.py"]
+python_classes = ["Test*"]
+python_functions = ["test_*"]
+
+[tool.ruff]
+line-length = 100
+target-version = "py38"
+
+[tool.ruff.lint]
+select = ["E", "F", "W", "I", "N", "UP", "B", "A", "C4", "DTZ", "T20"]
+ignore = ["E501"]
+
+[tool.mypy]
+python_version = "3.8"
+strict = false
+warn_unused_ignores = true
+warn_redundant_casts = true
+ignore_missing_imports = true
+disallow_untyped_defs = false

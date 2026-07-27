@@ -1,0 +1,50 @@
+version: "3.9"
+
+services:
+  ai-brain-base:
+    build: .
+    image: ai-brain-framework:1.0.0
+    profiles: [base]
+
+  simple-website:
+    image: ai-brain-framework:1.0.0
+    command: python examples/simple_website/app.py
+    ports:
+      - "8000:8000"
+    healthcheck:
+      test: ["CMD", "python", "-c", "import urllib.request; urllib.request.urlopen('http://localhost:8000/health').read()"]
+      interval: 30s
+      timeout: 3s
+      retries: 3
+    restart: unless-stopped
+
+  rest-api:
+    image: ai-brain-framework:1.0.0
+    command: python examples/rest_api/app.py
+    ports:
+      - "8001:8001"
+    healthcheck:
+      test: ["CMD", "python", "-c", "import urllib.request; urllib.request.urlopen('http://localhost:8001/health').read()"]
+      interval: 30s
+      timeout: 3s
+      retries: 3
+    restart: unless-stopped
+
+  websocket:
+    image: ai-brain-framework:1.0.0
+    command: python examples/websocket/app.py
+    ports:
+      - "8002:8002"
+    restart: unless-stopped
+
+  graphql:
+    image: ai-brain-framework:1.0.0
+    command: python examples/graphql/app.py
+    ports:
+      - "8003:8003"
+    healthcheck:
+      test: ["CMD", "python", "-c", "import urllib.request; urllib.request.urlopen('http://localhost:8003/health').read()"]
+      interval: 30s
+      timeout: 3s
+      retries: 3
+    restart: unless-stopped

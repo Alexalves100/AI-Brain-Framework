@@ -1,0 +1,7 @@
+{
+  "csrf": {
+    "content": "Cross-Site Request Forgery mitigation requires tokens",
+    "tags": [],
+    "source": null
+  }
+}

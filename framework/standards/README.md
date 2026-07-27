@@ -1,0 +1,3 @@
+# Standards
+
+Padrões técnicos.
