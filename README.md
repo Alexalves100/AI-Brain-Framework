@@ -162,15 +162,17 @@ AI-Brain-Framework/
 
 ---
 
-## Skills Oficiais (27)
+## Skills Oficiais (35)
 
 Definidas em `.ai/skills/`, organizadas por categoria:
 - **core** (4): brain, knowledge, memory, reasoning
 - **discovery** (3): discovery, index, graph
 - **context** (2): context, token-economy
-- **governance** (4): security, privacy, quality, review
-- **engineering** (10): architecture, database, api, performance, documentation, secure-dev-framework, token-efficient-coder, security-auditor, security-report
-- **delivery** (4): implementation, testing, release, governance
+- **governance** (5): security, privacy, quality, review, rate-limiting
+- **engineering** (10): architecture, database, api, performance, documentation, secure-dev-framework, token-efficient-coder, security-auditor, security-report, ui-design
+- **delivery** (11): implementation, testing, release, governance, error-handling, logging, caching, observability, cost-optimization, incident-response, capacity-planning, chaos-engineering, feature-flags
+
+Veja `.ai/HIERARCHY.md` para diagramas e cross-references.
 
 ---
 
