@@ -60,6 +60,15 @@ for r in results:
 - Taxa de erro < 1%
 - Cobertura de testes > 80%
 
+
+## Ver Também
+
+- `04-discovery-skill.md`
+- `06-graph-skill.md`
+
+## Histórico
+
+- 1.0.0 (2026-07-27): Criação inicial
 ## Referências
 - Ver `framework/Discovery/05_index.py` para implementação
 - Ver `tests/test_Discovery.py` para exemplos de uso

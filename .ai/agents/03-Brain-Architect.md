@@ -19,3 +19,9 @@ Responsável pelo Brain Engine — orquestração cognitiva central.
 - Single Source of Truth
 - Skills versionadas
 - Contexto auditável
+
+## Interfaces
+
+- Context Architect (contexto)
+- Knowledge Architect (conhecimento)
+- Todas as skills (orquestração)

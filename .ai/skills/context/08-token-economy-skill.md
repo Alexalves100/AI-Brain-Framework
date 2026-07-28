@@ -60,6 +60,15 @@ for r in results:
 - Taxa de erro < 1%
 - Cobertura de testes > 80%
 
+
+## Ver Também
+
+- `07-context-skill.md`
+- `23-token-efficient-coder.md`
+
+## Histórico
+
+- 1.0.0 (2026-07-27): Criação inicial
 ## Referências
 - Ver `framework/Context/08_token_economy.py` para implementação
 - Ver `tests/test_Context.py` para exemplos de uso

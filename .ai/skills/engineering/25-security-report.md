@@ -115,3 +115,12 @@ Geração de relatórios profissionais de segurança.
 - Security Architect
 - Release Architect
 - Stakeholders
+
+## Ver Também
+
+- `24-security-auditor.md`
+- `22-secure-dev-framework.md`
+
+## Histórico
+
+- 1.0.0 (2026-07-27): Criação inicial

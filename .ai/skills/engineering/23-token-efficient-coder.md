@@ -68,3 +68,11 @@ Economia máxima de tokens + respostas 100% objetivas (sem contextualização).
 ## Interfaces
 - Todas as skills
 - Context Engine
+
+## Ver Também
+
+- `08-token-economy-skill.md`
+
+## Histórico
+
+- 1.0.0 (2026-07-27): Criação inicial

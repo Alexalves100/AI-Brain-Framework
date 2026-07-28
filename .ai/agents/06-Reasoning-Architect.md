@@ -19,3 +19,9 @@ Reasoning Engine — raciocínio estruturado e auditável.
 - Lógica explícita
 - Premissas declaradas
 - Conclusão verificável
+
+## Interfaces
+
+- Brain Architect (orquestração)
+- Knowledge Architect (conhecimento)
+- Quality Architect (validação)

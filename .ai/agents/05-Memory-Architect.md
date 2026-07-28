@@ -19,3 +19,9 @@ Memory Engine — memória persistente entre sessões.
 - Memória imutável após commit
 - Recuperação determinística
 - Privacidade por padrão
+
+## Interfaces
+
+- Knowledge Architect (conhecimento)
+- Context Architect (contexto)
+- Brain Architect (orquestração)

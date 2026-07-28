@@ -55,3 +55,12 @@ Deploy seguro com feature flags para ativação progressiva e rollback instantâ
 - Quality Architect (métricas)
 - Security Architect (acesso)
 - Documentation Architect
+
+## Ver Também
+
+- `20-release-skill.md`
+- `33-incident-response-skill.md`
+
+## Histórico
+
+- 1.0.0 (2026-07-27): Criação inicial

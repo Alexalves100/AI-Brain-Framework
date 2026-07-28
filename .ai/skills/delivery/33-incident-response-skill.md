@@ -54,3 +54,12 @@ Resposta estruturada a incidentes em produção.
 - Logging Skill
 - Observability Skill
 - Communication channels
+
+## Ver Também
+
+- `31-observability-skill.md`
+- `35-chaos-engineering-skill.md`
+
+## Histórico
+
+- 1.0.0 (2026-07-27): Criação inicial

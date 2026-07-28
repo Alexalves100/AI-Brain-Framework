@@ -60,6 +60,15 @@ for r in results:
 - Taxa de erro < 1%
 - Cobertura de testes > 80%
 
+
+## Ver Também
+
+- `19-governance-architect`
+- `11-quality-skill.md`
+
+## Histórico
+
+- 1.0.0 (2026-07-27): Criação inicial
 ## Referências
 - Ver `framework/Delivery/21_governance.py` para implementação
 - Ver `tests/test_Delivery.py` para exemplos de uso

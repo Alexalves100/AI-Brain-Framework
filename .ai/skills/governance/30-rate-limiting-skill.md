@@ -49,3 +49,12 @@ Retry-After: 60
 - Security Skill
 - API Skill
 - SRE Architect
+
+## Ver Também
+
+- `09-security-skill.md`
+- `15-api-skill.md`
+
+## Histórico
+
+- 1.0.0 (2026-07-27): Criação inicial

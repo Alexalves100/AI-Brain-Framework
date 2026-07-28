@@ -64,3 +64,12 @@ Framework principal — ativa todas as skills de segurança em conjunto.
 - Security Architect
 - Release Architect
 - Quality Architect
+
+## Ver Também
+
+- `09-security-skill.md`
+- `24-security-auditor.md`
+
+## Histórico
+
+- 1.0.0 (2026-07-27): Criação inicial

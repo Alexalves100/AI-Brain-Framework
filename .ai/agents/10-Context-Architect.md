@@ -19,3 +19,9 @@ Context Engine — gestão de contexto entre agentes.
 - Contexto mínimo viável
 - Tokens auditáveis
 - Sem duplicação
+
+## Interfaces
+
+- Brain Architect (orquestração)
+- Memory Architect (persistência)
+- Token Economy (economia)

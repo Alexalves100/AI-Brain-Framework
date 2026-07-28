@@ -61,6 +61,15 @@ for r in results:
 - Taxa de erro < 1%
 - Cobertura de testes > 80%
 
+
+## Ver Também
+
+- `00-brain-skill.md`
+- `02-memory-skill.md`
+
+## Histórico
+
+- 1.0.0 (2026-07-27): Criação inicial
 ## Referências
 - Ver `framework/Core/01_knowledge.py` para implementação
 - Ver `tests/test_Core.py` para exemplos de uso

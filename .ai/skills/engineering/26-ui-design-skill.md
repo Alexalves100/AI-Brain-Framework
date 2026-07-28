@@ -51,3 +51,12 @@ Design de UI/UX, layout, responsividade e acessibilidade.
 - `ui_design` (engine)
 - UI Architect (agente)
 - API Architect (contratos)
+
+## Ver Também
+
+- `17-documentation-skill.md`
+- `16-performance-skill.md`
+
+## Histórico
+
+- 1.0.0 (2026-07-27): Criação inicial

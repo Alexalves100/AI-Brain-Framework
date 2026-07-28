@@ -60,6 +60,15 @@ for r in results:
 - Taxa de erro < 1%
 - Cobertura de testes > 80%
 
+
+## Ver Também
+
+- `13-architecture-skill.md`
+- `29-caching-skill.md`
+
+## Histórico
+
+- 1.0.0 (2026-07-27): Criação inicial
 ## Referências
 - Ver `framework/Engineering/16_performance.py` para implementação
 - Ver `tests/test_Engineering.py` para exemplos de uso

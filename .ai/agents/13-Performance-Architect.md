@@ -19,3 +19,9 @@ Performance como requisito, não otimização tardia.
 - Medir antes de otimizar
 - Core Web Vitals respeitados
 - Cache quando possível
+
+## Interfaces
+
+- Architecture Architect (decisões)
+- Database Architect (queries)
+- SRE Architect (operações)

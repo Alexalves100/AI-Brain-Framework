@@ -19,3 +19,9 @@ Arquitetura da solução. Traduz visão em sistemas concretos.
 - Alinhamento com arquitetura global
 - Documentação obrigatória
 - Rastreabilidade de decisões
+
+## Interfaces
+
+- Chief Architect (decisões globais)
+- Core Architect (implementação)
+- Engine Architects (especificações)

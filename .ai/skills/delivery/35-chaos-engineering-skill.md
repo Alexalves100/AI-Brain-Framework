@@ -71,3 +71,12 @@ Testes de resiliência via injeção controlada de falhas.
 - SRE Architect
 - Reliability testing
 - Observability Skill
+
+## Ver Também
+
+- `33-incident-response-skill.md`
+- `31-observability-skill.md`
+
+## Histórico
+
+- 1.0.0 (2026-07-27): Criação inicial

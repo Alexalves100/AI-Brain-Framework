@@ -19,3 +19,9 @@ Estratégia e cobertura de testes.
 - Pirâmide de testes respeitada
 - Testes determinísticos
 - CI obrigatório
+
+## Interfaces
+
+- Quality Architect (métricas)
+- Implementation Architect (código)
+- Reviewer (validação)

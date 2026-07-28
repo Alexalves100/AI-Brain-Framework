@@ -19,3 +19,9 @@ Define e mantém o Core do framework.
 - Core imutável sem aprovação
 - Contratos versionados
 - Compatibilidade retroativa
+
+## Interfaces
+
+- Solution Architect (solução)
+- Engine Architects (engines)
+- Reviewer (validação)

@@ -42,3 +42,12 @@ logging.CRITICAL # Sistema comprometido
 - Observability Skill
 - Error Handling Skill
 - SRE Architect
+
+## Ver Também
+
+- `27-error-handling-skill.md`
+- `31-observability-skill.md`
+
+## Histórico
+
+- 1.0.0 (2026-07-27): Criação inicial

@@ -60,6 +60,15 @@ for r in results:
 - Taxa de erro < 1%
 - Cobertura de testes > 80%
 
+
+## Ver Também
+
+- `14-database-skill.md`
+- `15-api-skill.md`
+
+## Histórico
+
+- 1.0.0 (2026-07-27): Criação inicial
 ## Referências
 - Ver `framework/Engineering/13_architecture.py` para implementação
 - Ver `tests/test_Engineering.py` para exemplos de uso

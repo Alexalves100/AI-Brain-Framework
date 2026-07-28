@@ -19,3 +19,9 @@ Design e governança de APIs.
 - RESTful por padrão
 - Versionamento semântico
 - Documentação obrigatória
+
+## Interfaces
+
+- Architecture Architect (decisões)
+- Database Architect (schemas)
+- Security Architect (auth)

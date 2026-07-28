@@ -19,3 +19,9 @@ Modelagem e arquitetura de bancos de dados.
 - Normalização adequada
 - Integridade referencial
 - Backups versionados
+
+## Interfaces
+
+- Architecture Architect (decisões)
+- API Architect (contratos)
+- Performance Architect (queries)

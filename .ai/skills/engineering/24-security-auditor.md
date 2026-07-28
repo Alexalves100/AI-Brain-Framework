@@ -137,3 +137,12 @@ CRIPTO
 - `security-report` (gera relatório)
 - `secure-dev-framework` (orquestra)
 - Security Architect
+
+## Ver Também
+
+- `09-security-skill.md`
+- `25-security-report.md`
+
+## Histórico
+
+- 1.0.0 (2026-07-27): Criação inicial

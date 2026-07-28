@@ -45,3 +45,12 @@ Onde:
 - FinOps Architect
 - Performance Skill
 - Observability Skill
+
+## Ver Também
+
+- `32-cost-optimization-skill.md`
+- `29-capacity-architect`
+
+## Histórico
+
+- 1.0.0 (2026-07-27): Criação inicial

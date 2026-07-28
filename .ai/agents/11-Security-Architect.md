@@ -19,3 +19,9 @@ Segurança desde a concepção. Aplica skill `security-auditor`.
 - Security by design
 - Zero trust por padrão
 - Auditoria contínua
+
+## Interfaces
+
+- Privacy Architect (LGPD)
+- Performance Architect (segurança)
+- Quality Architect (auditoria)

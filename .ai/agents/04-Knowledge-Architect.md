@@ -19,3 +19,9 @@ Knowledge Engine — gestão de conhecimento versionado.
 - Conhecimento versionado
 - Fontes citadas
 - Sem duplicação
+
+## Interfaces
+
+- Brain Architect (orquestração)
+- Memory Architect (persistência)
+- Discovery Architect (descoberta)

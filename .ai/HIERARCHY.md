@@ -39,8 +39,18 @@ graph TD
     D --> AC[27 FinOps]
     D --> AD[28 Legal]
     D --> AE[29 Capacity]
-    X --> AF[Quality Architect]
-    AF --> W
+    D --> AF[30 Platform]
+    D --> AG[31 Product]
+    D --> AH[32 Tech Writer]
+    D --> AI[33 AI Safety]
+    D --> AJ[34 Tech Lead]
+    D --> AK[35 UX Researcher]
+    D --> AL[36 Analyzer]
+    D --> AM[37 Planner]
+    D --> AN[38 Executor]
+    D --> AO[39 Tester]
+    X --> AP[Quality Architect]
+    AP --> W
 ```
 
 ## Hierarquia de Skills

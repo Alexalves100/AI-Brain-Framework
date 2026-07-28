@@ -19,3 +19,9 @@ Discovery Engine — descoberta estruturada de informações.
 - Fontes oficiais primeiro
 - Descoberta reproduzível
 - Sem inferência sem fonte
+
+## Interfaces
+
+- Index Architect (indexação)
+- Graph Architect (grafos)
+- Knowledge Architect (conhecimento)

@@ -19,3 +19,9 @@ Index Engine — indexação estruturada de conhecimento.
 - Índices atualizados
 - Esquemas estáveis
 - Busca determinística
+
+## Interfaces
+
+- Discovery Architect (descoberta)
+- Graph Architect (grafos)
+- Knowledge Architect (conhecimento)

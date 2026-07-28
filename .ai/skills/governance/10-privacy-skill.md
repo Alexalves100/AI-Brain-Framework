@@ -60,6 +60,15 @@ for r in results:
 - Taxa de erro < 1%
 - Cobertura de testes > 80%
 
+
+## Ver Também
+
+- `09-security-skill.md`
+- `12-privacy-architect`
+
+## Histórico
+
+- 1.0.0 (2026-07-27): Criação inicial
 ## Referências
 - Ver `framework/Governance/10_privacy.py` para implementação
 - Ver `tests/test_Governance.py` para exemplos de uso

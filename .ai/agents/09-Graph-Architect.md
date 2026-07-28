@@ -19,3 +19,9 @@ Graph Engine — grafos de conhecimento e relações.
 - Ontologias versionadas
 - Relacionamentos tipados
 - Sem ciclos órfãos
+
+## Interfaces
+
+- Index Architect (indexação)
+- Knowledge Architect (conhecimento)
+- Database Architect (schemas)

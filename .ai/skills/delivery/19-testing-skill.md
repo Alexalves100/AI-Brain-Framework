@@ -60,6 +60,15 @@ for r in results:
 - Taxa de erro < 1%
 - Cobertura de testes > 80%
 
+
+## Ver Também
+
+- `18-implementation-skill.md`
+- `11-quality-skill.md`
+
+## Histórico
+
+- 1.0.0 (2026-07-27): Criação inicial
 ## Referências
 - Ver `framework/Delivery/19_testing.py` para implementação
 - Ver `tests/test_Delivery.py` para exemplos de uso

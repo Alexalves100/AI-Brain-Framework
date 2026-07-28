@@ -19,3 +19,9 @@ LGPD e privacidade por padrão.
 - Privacy by design
 - Minimização de dados
 - Direito do titular respeitado
+
+## Interfaces
+
+- Security Architect (segurança)
+- Legal Architect (compliance)
+- Governance Architect (políticas)

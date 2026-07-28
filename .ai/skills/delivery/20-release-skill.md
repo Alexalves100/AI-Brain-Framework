@@ -60,6 +60,15 @@ for r in results:
 - Taxa de erro < 1%
 - Cobertura de testes > 80%
 
+
+## Ver Também
+
+- `18-implementation-skill.md`
+- `21-release-architect`
+
+## Histórico
+
+- 1.0.0 (2026-07-27): Criação inicial
 ## Referências
 - Ver `framework/Delivery/20_release.py` para implementação
 - Ver `tests/test_Delivery.py` para exemplos de uso

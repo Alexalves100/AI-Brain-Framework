@@ -60,6 +60,15 @@ for r in results:
 - Taxa de erro < 1%
 - Cobertura de testes > 80%
 
+
+## Ver Também
+
+- `11-quality-skill.md`
+- `22-reviewer`
+
+## Histórico
+
+- 1.0.0 (2026-07-27): Criação inicial
 ## Referências
 - Ver `framework/Governance/12_review.py` para implementação
 - Ver `tests/test_Governance.py` para exemplos de uso

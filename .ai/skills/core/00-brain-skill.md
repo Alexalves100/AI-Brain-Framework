@@ -61,6 +61,15 @@ for r in results:
 - Taxa de erro < 1%
 - Cobertura de testes > 80%
 
+
+## Ver Também
+
+- `01-knowledge-skill.md`
+- `07-context-skill.md`
+
+## Histórico
+
+- 1.0.0 (2026-07-27): Criação inicial
 ## Referências
 - Ver `framework/Core/00_brain.py` para implementação
 - Ver `tests/test_Core.py` para exemplos de uso

@@ -59,3 +59,12 @@ Otimização de custos cloud e recursos de TI.
 - FinOps Architect
 - Capacity Architect
 - Performance Skill
+
+## Ver Também
+
+- `34-capacity-planning-skill.md`
+- `27-finops-architect`
+
+## Histórico
+
+- 1.0.0 (2026-07-27): Criação inicial

@@ -55,3 +55,12 @@ Traces:
 - Error Handling Skill
 - Performance Skill
 - SRE Architect
+
+## Ver Também
+
+- `28-logging-skill.md`
+- `27-error-handling-skill.md`
+
+## Histórico
+
+- 1.0.0 (2026-07-27): Criação inicial

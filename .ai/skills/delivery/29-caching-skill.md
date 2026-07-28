@@ -53,3 +53,12 @@ with cache.lock(key):
 - Performance Skill
 - Architecture Skill
 - SRE Architect
+
+## Ver Também
+
+- `16-performance-skill.md`
+- `31-observability-skill.md`
+
+## Histórico
+
+- 1.0.0 (2026-07-27): Criação inicial
