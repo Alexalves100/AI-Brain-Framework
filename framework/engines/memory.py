@@ -1,6 +1,6 @@
 """
 Memory Engine — persistent key-value memory
-Version: 1.0.0
+Version: 1.1.0
 """
 
 import json
@@ -11,9 +11,11 @@ from ..core import Skill, SkillResult, SkillStatus, Context
 
 class MemoryEngine(Skill):
     name = "memory"
-    version = "1.0.0"
+    version = "1.1.0"
     category = "core"
     description = "Persistent key-value memory with snapshot support"
+
+    VALID_ACTIONS = ("get", "set", "delete", "snapshot")
 
     def __init__(self, path: str = ".memory.json", **kwargs):
         super().__init__(**kwargs)
@@ -25,25 +27,39 @@ class MemoryEngine(Skill):
         if self.path.exists():
             try:
                 self._store = json.loads(self.path.read_text(encoding="utf-8"))
-            except Exception:
+                if not isinstance(self._store, dict):
+                    self._store = {}
+            except (json.JSONDecodeError, OSError):
                 self._store = {}
 
-    def _save(self) -> None:
-        self.path.write_text(
-            json.dumps(self._store, indent=2, ensure_ascii=False),
-            encoding="utf-8",
-        )
+    def _save(self) -> bool:
+        """Tenta persistir o store. Retorna True em sucesso, False em falha."""
+        try:
+            self.path.parent.mkdir(parents=True, exist_ok=True)
+            self.path.write_text(
+                json.dumps(self._store, indent=2, ensure_ascii=False),
+                encoding="utf-8",
+            )
+            return True
+        except OSError:
+            return False
 
     def get(self, key: str, default: Any = None) -> Any:
+        if not isinstance(key, str):
+            return default
         return self._store.get(key, default)
 
-    def set(self, key: str, value: Any) -> None:
+    def set(self, key: str, value: Any) -> bool:
+        if not isinstance(key, str) or not key:
+            return False
         self._store[key] = value
-        self._save()
+        return self._save()
 
-    def delete(self, key: str) -> None:
+    def delete(self, key: str) -> bool:
+        if not isinstance(key, str):
+            return False
         self._store.pop(key, None)
-        self._save()
+        return self._save()
 
     def snapshot(self) -> dict:
         return dict(self._store)
@@ -53,19 +69,42 @@ class MemoryEngine(Skill):
         key = context.get("key")
         value = context.get("value")
 
-        if action == "get" and key:
+        if not isinstance(action, str) or action not in self.VALID_ACTIONS:
+            return SkillResult(
+                status=SkillStatus.ERROR,
+                error=f"Invalid action '{action}'. Valid: {self.VALID_ACTIONS}",
+            )
+
+        if action in ("get", "set", "delete"):
+            if not isinstance(key, str) or not key:
+                return SkillResult(
+                    status=SkillStatus.ERROR,
+                    error=f"Action '{action}' requires a non-empty string key",
+                )
+
+        if action == "get":
             return SkillResult(
                 status=SkillStatus.SUCCESS,
                 output={"key": key, "value": self.get(key)},
             )
-        if action == "set" and key:
-            self.set(key, value)
+        if action == "set":
+            saved = self.set(key, value)
+            if not saved:
+                return SkillResult(
+                    status=SkillStatus.ERROR,
+                    error=f"Failed to persist key '{key}'",
+                )
             return SkillResult(
                 status=SkillStatus.SUCCESS,
                 output={"key": key, "saved": True},
             )
-        if action == "delete" and key:
-            self.delete(key)
+        if action == "delete":
+            deleted = self.delete(key)
+            if not deleted:
+                return SkillResult(
+                    status=SkillStatus.ERROR,
+                    error=f"Failed to persist deletion of '{key}'",
+                )
             return SkillResult(
                 status=SkillStatus.SUCCESS,
                 output={"key": key, "deleted": True},
@@ -77,5 +116,5 @@ class MemoryEngine(Skill):
             )
         return SkillResult(
             status=SkillStatus.ERROR,
-            error=f"Invalid action '{action}' or missing key",
+            error=f"Unhandled action '{action}'",
         )

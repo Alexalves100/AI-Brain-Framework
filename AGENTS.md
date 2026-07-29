@@ -1,10 +1,16 @@
 # AGENTS.md
 
-Version: 1.0.0
+Version: 1.1.0
 
 Status: Official
 
 Owner: AI-Brain-Framework
+
+Last Update: 2026-07-28
+
+Changelog:
+- 1.1.0 — Adicionados agentes 23-39 (UI, SRE, Data, ML, FinOps, Legal, Capacity, Platform, Product Manager, Tech Writer, AI Safety, Tech Lead, UX Researcher, Analyzer, Planner, Executor, Tester)
+- 1.0.0 — Versão inicial com agentes 00-22
 
 ---
 
@@ -244,6 +250,108 @@ Responsável pelas releases.
 22-Reviewer
 
 Responsável pela revisão técnica.
+
+---
+
+23-UI-Architect
+
+Responsável pelo design de UI/UX, layout, responsividade e acessibilidade visual.
+
+---
+
+24-SRE-Architect
+
+Responsável por Site Reliability Engineering. Garante disponibilidade, performance e resiliência em produção.
+
+---
+
+25-Data-Engineer
+
+Responsável por pipelines de dados, ETL, data warehouse e analytics.
+
+---
+
+26-ML-Engineer
+
+Responsável por modelos de machine learning, MLOps e AI em produção.
+
+---
+
+27-FinOps-Architect
+
+Responsável por otimização de custos cloud e governança financeira.
+
+---
+
+28-Legal-Architect
+
+Responsável por compliance legal, LGPD, contratos e propriedade intelectual.
+
+---
+
+29-Capacity-Architect
+
+Responsável por planejamento de capacidade, escalabilidade e dimensionamento.
+
+---
+
+30-Platform-Engineer
+
+Responsável pela plataforma interna, developer experience e tooling.
+
+---
+
+31-Product-Manager
+
+Responsável pela visão de produto, priorização, métricas de negócio e alinhamento técnico.
+
+---
+
+32-Tech-Writer
+
+Responsável pela documentação técnica profissional, clara e acessível.
+
+---
+
+33-AI-Safety-Architect
+
+Responsável por segurança de IA, guardrails, alinhamento e auditoria de modelos.
+
+---
+
+34-Tech-Lead
+
+Responsável pela liderança técnica do time, decisões arquiteturais diárias e code review.
+
+---
+
+35-UX-Researcher
+
+Responsável por pesquisa com usuários, validação de hipóteses e insights de UX.
+
+---
+
+36-Analyzer
+
+Responsável por análise estruturada de problemas, dados e evidências.
+
+---
+
+37-Planner
+
+Responsável por planejamento estratégico, decomposição de objetivos e roadmaps.
+
+---
+
+38-Executor
+
+Responsável por execução tática, implementação e entrega operacional.
+
+---
+
+39-Tester
+
+Responsável por estratégia de testes, validação de qualidade e verificação de aceite.
 
 ---
 

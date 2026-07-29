@@ -10,6 +10,7 @@ from .orchestrator import Orchestrator
 from .logging import get_logger, StructuredFormatter
 from .metrics import MetricsCollector, Metric
 from .i18n import I18n
+from .event_bus import EventBus
 
 __all__ = [
     "Skill",
@@ -23,4 +24,6 @@ __all__ = [
     "MetricsCollector",
     "Metric",
     "I18n",
+    "EventBus",
 ]
+

@@ -11,6 +11,8 @@ from .knowledge import KnowledgeEngine
 from .reasoning import ReasoningEngine
 from .discovery import DiscoveryEngine
 from .ui_design import UIDesignEngine
+from .saas import SaaSManager, TenantContext
+from .business_reporting import BusinessReportingEngine
 
 __all__ = [
     "BrainEngine",
@@ -21,4 +23,9 @@ __all__ = [
     "ReasoningEngine",
     "DiscoveryEngine",
     "UIDesignEngine",
+    "SaaSManager",
+    "TenantContext",
+    "BusinessReportingEngine",
 ]
+
+
