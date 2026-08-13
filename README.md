@@ -105,23 +105,25 @@ python examples/graphql/app.py          # http://localhost:8003
 |---|---|
 | `brain` | Roteamento por categoria (security, performance, architecture, docs, testing) |
 | `security` | Auditoria regex (SQLi, XSS, eval, hardcoded secrets, weak hash, insecure HTTP) |
-| `token_economy` | Compressão de texto (remove filler, normaliza whitespace) |
+| `token_economy` | Otimização de tokens (AST skeletons estilo Serena MCP, compressão de texto e minificação) |
 | `memory` | KV persistente em JSON |
 | `knowledge` | Knowledge base com search/indexing |
 | `reasoning` | Raciocínio estruturado com premissas e confidence |
-| `discovery` | Scan de codebase por tipo de arquivo |
+| `discovery` | Scan de codebase e descoberta de símbolos AST |
 | `ui_design` | Validação de UI/UX (acessibilidade, semântica, responsividade) |
 
 ## Módulos Adicionais
 
 | Módulo | Função |
 |---|---|
-| `scanners` | CodeScanner, DependencyScanner, StructureScanner |
+| `scanners` | ASTScanner, CodeScanner, DependencyScanner, StructureScanner |
 | `analyzers` | ComplexityAnalyzer, QualityAnalyzer, MetricsAnalyzer |
 | `builders` | ProjectBuilder, ModuleBuilder, ConfigBuilder |
 | `governance` | PolicyEngine, AuditLog, ComplianceChecker |
 | `prompts` | PromptRegistry, PromptBuilder |
 | `schemas` | SchemaValidator, SchemaRegistry |
+
+> 📖 **Documentação Detalhada de Otimização de Tokens & Benchmark:** Veja [docs/token_economy.md](docs/token_economy.md) (70% a 90% de economia).
 
 ---
 
