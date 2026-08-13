@@ -12,6 +12,7 @@ from .rbac import RBACManager
 from .cache_manager import CacheManager
 from .openapi_generator import OpenAPIGenerator
 from .file_storage import FileStorageManager
+from .senior_guidelines import SeniorGuidelines
 
 __all__ = [
     "SecurityHeaders",
@@ -24,6 +25,8 @@ __all__ = [
     "CacheManager",
     "OpenAPIGenerator",
     "FileStorageManager",
+    "SeniorGuidelines",
 ]
+
 
 

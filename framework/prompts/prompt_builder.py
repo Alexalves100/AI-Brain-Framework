@@ -28,6 +28,12 @@ class PromptBuilder:
         self.parts.append("Constraints:\n" + "\n".join(f"- {c}" for c in constraints))
         return self
 
+    def add_senior_guardrails(self) -> "PromptBuilder":
+        """Injects Senior Developer & Clean Code guardrails."""
+        from ..standards.senior_guidelines import SeniorGuidelines
+        return self.add_constraints(SeniorGuidelines.get_prompt_constraints())
+
+
     def add_format(self, format_spec: str) -> "PromptBuilder":
         self.parts.append(f"Output format:\n{format_spec}")
         return self

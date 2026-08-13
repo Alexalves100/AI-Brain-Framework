@@ -111,19 +111,22 @@ python examples/graphql/app.py          # http://localhost:8003
 | `reasoning` | Raciocínio estruturado com premissas e confidence |
 | `discovery` | Scan de codebase e descoberta de símbolos AST |
 | `ui_design` | Validação de UI/UX (acessibilidade, semântica, responsividade) |
+| `clean_code` | Auditoria de Clean Code, detecção de Code Smells e Self-Healing Loop |
 
 ## Módulos Adicionais
 
 | Módulo | Função |
 |---|---|
+| `standards` | SeniorGuidelines, SecurityHeaders, InputValidator, RateLimiter, JWTAuth |
 | `scanners` | ASTScanner, CodeScanner, DependencyScanner, StructureScanner |
-| `analyzers` | ComplexityAnalyzer, QualityAnalyzer, MetricsAnalyzer |
+| `analyzers` | CodeSmellDetector, ComplexityAnalyzer, QualityAnalyzer, MetricsAnalyzer |
 | `builders` | ProjectBuilder, ModuleBuilder, ConfigBuilder |
 | `governance` | PolicyEngine, AuditLog, ComplianceChecker |
-| `prompts` | PromptRegistry, PromptBuilder |
+| `prompts` | PromptRegistry, PromptBuilder, SeniorPromptTemplates |
 | `schemas` | SchemaValidator, SchemaRegistry |
 
-> 📖 **Documentação Detalhada de Otimização de Tokens & Benchmark:** Veja [docs/token_economy.md](docs/token_economy.md) (70% a 90% de economia).
+> 📖 **Otimização de Tokens (Serena MCP style):** Veja [docs/token_economy.md](docs/token_economy.md) (70% a 90% de economia).  
+> 📖 **Padrão Sênior & Clean Code (Aider/Sourcery style):** Veja [docs/clean_code.md](docs/clean_code.md) (Guardrails e Self-Healing).
 
 ---
 

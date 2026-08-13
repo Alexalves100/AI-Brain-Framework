@@ -17,14 +17,16 @@ from .engines import (
     ReasoningEngine,
     DiscoveryEngine,
     UIDesignEngine,
+    CleanCodeEngine,
 )
-from .standards import SecurityHeaders, InputValidator
-from .scanners import CodeScanner, DependencyScanner, StructureScanner
-from .analyzers import ComplexityAnalyzer, QualityAnalyzer, MetricsAnalyzer
+from .standards import SecurityHeaders, InputValidator, SeniorGuidelines
+from .scanners import CodeScanner, DependencyScanner, StructureScanner, ASTScanner
+from .analyzers import ComplexityAnalyzer, QualityAnalyzer, MetricsAnalyzer, CodeSmellDetector
 from .builders import ProjectBuilder, ModuleBuilder, ConfigBuilder
 from .governance import PolicyEngine, AuditLog, ComplianceChecker
-from .prompts import PromptRegistry, PromptBuilder
+from .prompts import PromptRegistry, PromptBuilder, SeniorPromptTemplates
 from .schemas import SchemaValidator, SchemaRegistry
+
 
 
 def create_default_orchestrator() -> Orchestrator:
