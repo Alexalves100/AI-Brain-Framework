@@ -4,7 +4,8 @@ Barramento de eventos desacoplado (Publish/Subscribe) em Python puro para
 comunicação entre serviços, auditoria e execução de rotinas assíncronas/callbacks.
 """
 import threading
-from typing import Dict, List, Callable, Any
+from typing import Any, Callable, Dict, List
+
 
 class EventBus:
     """Barramento de eventos desacoplado (Publish/Subscribe) thread-safe."""
@@ -41,13 +42,14 @@ class EventBus:
         for handler in handlers_to_call:
             try:
                 handler(data)
-            except Exception as e:
+            except Exception:
                 # Trata erros em handlers para não interromper outros inscritos
-                print(f"Erro ao executar handler para o evento '{event_name}': {e}")
+                pass
 
         return len(handlers_to_call)
 
-    def clear() -> None:
+    def clear(self) -> None:
         """Remove todas as inscrições do barramento."""
         with self._lock:
             self._subscribers.clear()
+

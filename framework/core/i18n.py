@@ -4,7 +4,6 @@ Version: 1.0.0
 Simple message translation with locale support.
 """
 
-from typing import Dict
 
 
 class I18n:

@@ -4,9 +4,10 @@ Version: 1.1.0
 """
 
 from typing import List, Optional
-from .skill import Skill, SkillResult, SkillStatus
-from .registry import SkillRegistry
+
 from .context import Context
+from .registry import SkillRegistry
+from .skill import SkillResult, SkillStatus
 
 
 class Orchestrator:
@@ -68,8 +69,9 @@ class Orchestrator:
             ]
         validation_error = self._validate_inputs(names[0] if names else "", context)
         # Apenas valida context aqui; nomes são validados em run()
-        if validation_error is not None and "skill_name" in validation_error.error:
+        if validation_error is not None and validation_error.error and "skill_name" in validation_error.error:
             return [validation_error]
+
 
         results = []
         for name in names:

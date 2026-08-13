@@ -4,7 +4,7 @@ Version: 1.0.0
 """
 
 from dataclasses import dataclass, field
-from typing import Any, Dict, Optional
+from typing import Any, Dict
 
 
 @dataclass

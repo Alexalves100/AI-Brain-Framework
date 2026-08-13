@@ -12,7 +12,6 @@ sys.path.insert(0, str(ROOT))
 from framework.core import Context, SkillStatus
 from framework.engines.clean_code import CleanCodeEngine
 
-
 SAMPLE_CLEAN = '''"""Clean Module."""
 from typing import List
 

@@ -1,5 +1,7 @@
 import unittest
+
 from framework.standards import JWTAuth, PasswordHasher, RBACManager
+
 
 class TestAuthAndRBAC(unittest.TestCase):
 

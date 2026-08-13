@@ -3,16 +3,16 @@ Template Starter para Aplicações SaaS Profissionais.
 Demonstra a integração entre HTTP Server nativo, JWT Auth, Multi-Tenancy,
 Security Headers e Design System Tokens.
 """
-from http.server import HTTPServer, BaseHTTPRequestHandler
 import json
 import sys
+from http.server import BaseHTTPRequestHandler, HTTPServer
 from pathlib import Path
 
 # Adiciona diretório raiz ao PYTHONPATH se necessário
 sys.path.insert(0, str(Path(__file__).resolve().parent.parent.parent))
 
-from framework.standards import SecurityHeaders, CSSTokens, JWTAuth, PasswordHasher, RBACManager
 from framework.engines import SaaSManager
+from framework.standards import CSSTokens, JWTAuth, RBACManager, SecurityHeaders
 
 saas_engine = SaaSManager()
 
@@ -30,14 +30,14 @@ class SaaSHandler(BaseHTTPRequestHandler):
     def _set_security_headers(self, content_type: str = "application/json"):
         self.send_response(200)
         self.send_header("Content-Type", content_type)
-        headers = SecurityHeaders.get_default_headers()
+        headers = SecurityHeaders.get()
         for k, v in headers.items():
             self.send_header(k, v)
         self.end_headers()
 
     def do_GET(self):
         # Resolve Tenant
-        headers_dict = {k: v for k, v in self.headers.items()}
+        headers_dict = dict(self.headers.items())
         tenant_id = saas_engine.resolve_tenant_from_headers(headers_dict) or "default"
 
         if self.path == "/health":
@@ -66,8 +66,8 @@ class SaaSHandler(BaseHTTPRequestHandler):
 def run_server(port: int = 8080):
     server_address = ("", port)
     httpd = HTTPServer(server_address, SaaSHandler)
-    print(f"Servidor SaaS Starter rodando em http://localhost:{port}")
     httpd.serve_forever()
 
 if __name__ == "__main__":
     run_server()
+

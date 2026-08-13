@@ -4,7 +4,7 @@ Version: 1.0.0
 """
 
 import re
-from typing import Any, Optional
+from typing import Any
 
 
 class InputValidator:

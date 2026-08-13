@@ -3,7 +3,7 @@ Policy Engine — enforces governance policies
 Version: 1.0.0
 """
 
-from typing import List, Dict, Any
+from typing import Any, Dict, List, Optional
 
 
 class PolicyEngine:
@@ -28,8 +28,9 @@ class PolicyEngine:
         },
     }
 
-    def __init__(self, policies: Dict[str, Dict[str, Any]] = None):
+    def __init__(self, policies: Optional[Dict[str, Dict[str, Any]]] = None):
         self.policies = policies or self.DEFAULT_POLICIES
+
 
     def check(self, policy_name: str, context: Dict[str, Any]) -> Dict[str, Any]:
         if policy_name not in self.policies:

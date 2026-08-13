@@ -6,7 +6,7 @@ Version: 1.0.0
 import json
 import time
 from pathlib import Path
-from typing import Dict, Any, List
+from typing import Any, Dict, List, Optional
 
 
 class AuditLog:
@@ -40,8 +40,9 @@ class AuditLog:
         with self.path.open("a", encoding="utf-8") as f:
             f.write(json.dumps(entry, ensure_ascii=False) + "\n")
 
-    def query(self, event: str = None, limit: int = 100) -> List[Dict[str, Any]]:
+    def query(self, event: Optional[str] = None, limit: int = 100) -> List[Dict[str, Any]]:
         results = self._events
+
         if event:
             results = [e for e in results if e["event"] == event]
         return results[-limit:]

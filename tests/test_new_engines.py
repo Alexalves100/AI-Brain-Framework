@@ -1,15 +1,15 @@
 """Tests for new engines: knowledge, reasoning, discovery."""
 
 import sys
-import unittest
 import tempfile
+import unittest
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parent.parent
 sys.path.insert(0, str(ROOT))
 
 from framework.core import Context, SkillStatus
-from framework.engines import KnowledgeEngine, ReasoningEngine, DiscoveryEngine
+from framework.engines import DiscoveryEngine, KnowledgeEngine, ReasoningEngine
 
 
 class TestKnowledgeEngine(unittest.TestCase):

@@ -5,8 +5,9 @@ Version: 1.0.0
 
 import re
 from html.parser import HTMLParser
-from typing import List, Dict, Any
-from ..core import Skill, SkillResult, SkillStatus, Context
+from typing import Any, Dict, List
+
+from ..core import Context, Skill, SkillResult, SkillStatus
 
 
 class _SemanticChecker(HTMLParser):

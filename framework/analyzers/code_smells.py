@@ -5,8 +5,7 @@ Version: 1.0.0
 
 import ast
 import re
-from pathlib import Path
-from typing import Any, Dict, List, Optional, Set, Union
+from typing import Any, Dict, List, Set, Tuple, Union
 
 
 class CodeSmellDetector:
@@ -127,8 +126,9 @@ class CodeSmellDetector:
 
     def _analyze_function(
         self, node: Union[ast.FunctionDef, ast.AsyncFunctionDef], lines: List[str]
-    ) -> (List[Dict[str, Any]], bool):
+    ) -> Tuple[List[Dict[str, Any]], bool]:
         smells: List[Dict[str, Any]] = []
+
         name = node.name
 
         start = node.lineno

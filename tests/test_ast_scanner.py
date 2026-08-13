@@ -12,7 +12,6 @@ sys.path.insert(0, str(ROOT))
 
 from framework.scanners.ast_scanner import ASTScanner
 
-
 SAMPLE_CODE = '''"""Module docstring for sample authentication."""
 
 import os
@@ -65,7 +64,7 @@ class TestASTScanner(unittest.TestCase):
 
     def test_get_symbols_overview_generates_valid_python(self):
         skeleton = self.scanner.get_symbols_overview(SAMPLE_CODE, file_path="auth.py")
-        
+
         # Verify it compiles cleanly as valid Python code
         parsed = ast.parse(skeleton)
         self.assertIsNotNone(parsed)

@@ -4,6 +4,7 @@ Version: 1.0.0
 """
 
 from typing import Any, Dict, List
+
 from ..standards.senior_guidelines import SeniorGuidelines
 
 

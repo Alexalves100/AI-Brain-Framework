@@ -3,7 +3,6 @@ Design System Tokens Generator.
 Fornece tokens de design visual, paletas HSL, variáveis CSS e reset tipográfico
 para aplicações Web, Mobile e Websites profissionais sem dependências externas.
 """
-from typing import Dict, Any
 
 class CSSTokens:
     """Provedor de tokens de design system em CSS nativo."""

@@ -1,5 +1,7 @@
 import unittest
+
 from framework.core import EventBus
+
 
 class TestEventBus(unittest.TestCase):
 

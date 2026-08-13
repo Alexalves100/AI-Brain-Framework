@@ -5,7 +5,7 @@ Version: 1.0.0
 
 import re
 from pathlib import Path
-from typing import List, Dict, Any
+from typing import Any, Dict, List
 
 
 class DependencyScanner:
@@ -23,8 +23,9 @@ class DependencyScanner:
     def scan_python(self, content: str) -> List[Dict[str, Any]]:
         deps = []
         for m in self.PYTHON_PATTERN.finditer(content):
-            name, op, version = m.group(1), m.group(2), m.group(3)
+            name, _op, version = m.group(1), m.group(2), m.group(3)
             if name.lower() in ("python", "pip"):
+
                 continue
             deps.append({
                 "name": name,

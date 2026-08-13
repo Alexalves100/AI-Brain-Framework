@@ -10,7 +10,6 @@ sys.path.insert(0, str(ROOT))
 
 from framework.core import Context
 from framework.engines.token_economy import TokenEconomyEngine
-from framework.scanners.ast_scanner import ASTScanner
 
 
 def estimate_tokens(text: str) -> int:
@@ -26,7 +25,6 @@ def run_benchmark():
     ]
 
     engine = TokenEconomyEngine()
-    scanner = ASTScanner()
 
     print("=" * 80)
     print("BENCHMARK DE ECONOMIA DE TOKENS (SERENA MCP STYLE vs ANTES)")
@@ -52,7 +50,6 @@ def run_benchmark():
         ctx_legacy.set("text", raw_code)
         ctx_legacy.set("mode", "conversational")
         res_legacy = engine.run(ctx_legacy)
-        legacy_chars = res_legacy.output["compressed_len"]
         legacy_tokens = estimate_tokens(res_legacy.output["text"])
 
         # 2. Modo Novo (Serena MCP - AST Skeleton)
@@ -60,8 +57,8 @@ def run_benchmark():
         ctx_serena.set("code", raw_code)
         ctx_serena.set("mode", "ast_skeleton")
         res_serena = engine.run(ctx_serena)
-        serena_chars = res_serena.output["compressed_len"]
         serena_tokens = estimate_tokens(res_serena.output["text"])
+
         savings_tokens = orig_tokens - serena_tokens
         savings_pct = (savings_tokens / orig_tokens) * 100 if orig_tokens else 0
 

@@ -1,6 +1,8 @@
-import unittest
 import time
+import unittest
+
 from framework.standards import CacheManager
+
 
 class TestCacheManager(unittest.TestCase):
 

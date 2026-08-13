@@ -4,6 +4,7 @@ Version: 1.0.0
 """
 
 from typing import Dict, List, Optional
+
 from .skill import Skill
 
 
@@ -31,7 +32,8 @@ class SkillRegistry:
         return sorted(skills, key=lambda s: s.name)
 
     def categories(self) -> List[str]:
-        return sorted(set(s.category for s in self._skills.values()))
+        return sorted({s.category for s in self._skills.values()})
+
 
     def __len__(self):
         return len(self._skills)

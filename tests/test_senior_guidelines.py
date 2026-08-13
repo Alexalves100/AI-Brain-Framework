@@ -9,8 +9,8 @@ from pathlib import Path
 ROOT = Path(__file__).resolve().parent.parent
 sys.path.insert(0, str(ROOT))
 
-from framework.standards.senior_guidelines import SeniorGuidelines
 from framework.prompts import PromptBuilder, SeniorPromptTemplates
+from framework.standards.senior_guidelines import SeniorGuidelines
 
 
 class TestSeniorGuidelines(unittest.TestCase):

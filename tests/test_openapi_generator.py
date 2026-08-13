@@ -1,6 +1,8 @@
-import unittest
 import json
+import unittest
+
 from framework.standards import OpenAPIGenerator
+
 
 class TestOpenAPIGenerator(unittest.TestCase):
 

@@ -4,7 +4,8 @@ Gera a documentação interativa e especificação técnica OpenAPI 3.0 / Swagge
 para APIs REST sem dependências externas.
 """
 import json
-from typing import Dict, Any, List, Optional
+from typing import Any, Dict, List, Optional
+
 
 class OpenAPIGenerator:
     """Gerador automático de especificações OpenAPI 3.0."""

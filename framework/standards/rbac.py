@@ -2,7 +2,8 @@
 Role-Based Access Control (RBAC) Module.
 Gerencia papéis, permissões granulares e controle de acesso hierárquico.
 """
-from typing import Dict, Set, List, Optional
+from typing import Dict, List, Optional, Set
+
 
 class RBACManager:
     """Gerenciador de controle de acesso baseado em papéis (RBAC)."""

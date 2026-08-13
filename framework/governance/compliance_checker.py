@@ -4,7 +4,7 @@ Version: 1.0.0
 """
 
 from pathlib import Path
-from typing import Dict, Any, List
+from typing import Any, Dict
 
 
 class ComplianceChecker:

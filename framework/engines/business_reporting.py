@@ -4,11 +4,12 @@ Processa datasets comerciais e financeiros para geração de relatórios gerenci
 DRE Gerencial, KPIs comerciais (Ticket Médio/AOV), MRR/ARR, Dashboard HTML responsivo
 e suporte nativo a impressão/geração de PDF (A4 Print-Friendly).
 """
-from typing import Dict, List, Any, Optional
-from datetime import datetime
-import json
-from ..core import Skill, SkillResult, SkillStatus, Context
+from datetime import datetime, timezone
+from typing import Any, Dict
+
+from ..core import Context, Skill, SkillResult, SkillStatus
 from ..standards import CSSTokens
+
 
 class BusinessReportingEngine(Skill):
     name = "business_reporting"
@@ -65,7 +66,7 @@ class BusinessReportingEngine(Skill):
 
         return {
             "report_name": "Relatório de Contas a Pagar e Receber",
-            "generated_at": datetime.now().strftime("%Y-%m-%d %H:%M:%S"),
+            "generated_at": datetime.now(timezone.utc).strftime("%Y-%m-%d %H:%M:%S"),
             "summary": {
                 "total_payable": round(total_payable, 2),
                 "total_receivable": round(total_receivable, 2),
@@ -105,15 +106,16 @@ class BusinessReportingEngine(Skill):
         total_sales_count = len(sales)
         average_order_value = (total_sales_volume / total_sales_count) if total_sales_count > 0 else 0.0
 
-        for s, metrics in commissions_by_seller.items():
+        for metrics in commissions_by_seller.values():
             metrics["total_sales"] = round(metrics["total_sales"], 2)
+
             metrics["total_commission"] = round(metrics["total_commission"], 2)
             count = metrics["sales_count"]
             metrics["average_order_value"] = round(metrics["total_sales"] / count, 2) if count > 0 else 0.0
 
         return {
             "report_name": "Relatório de Vendas e Comissões",
-            "generated_at": datetime.now().strftime("%Y-%m-%d %H:%M:%S"),
+            "generated_at": datetime.now(timezone.utc).strftime("%Y-%m-%d %H:%M:%S"),
             "summary": {
                 "total_sales_volume": round(total_sales_volume, 2),
                 "total_commissions": round(total_commissions, 2),
@@ -139,7 +141,7 @@ class BusinessReportingEngine(Skill):
         return {
             "report_name": f"Relatório de Faturamento ({period.capitalize()})",
             "period": period,
-            "generated_at": datetime.now().strftime("%Y-%m-%d %H:%M:%S"),
+            "generated_at": datetime.now(timezone.utc).strftime("%Y-%m-%d %H:%M:%S"),
             "summary": {
                 "gross_revenue": round(total_gross_revenue, 2),
                 "deductions": round(total_deductions, 2),
@@ -164,7 +166,7 @@ class BusinessReportingEngine(Skill):
 
         return {
             "report_name": "Relatório de Notas Fiscais Emitidas",
-            "generated_at": datetime.now().strftime("%Y-%m-%d %H:%M:%S"),
+            "generated_at": datetime.now(timezone.utc).strftime("%Y-%m-%d %H:%M:%S"),
             "summary": {
                 "total_issued_amount": round(total_invoice_amount, 2),
                 "total_invoices": len(invoices),
@@ -191,7 +193,7 @@ class BusinessReportingEngine(Skill):
 
         return {
             "report_name": "Demonstração do Resultado do Exercício (DRE Gerencial)",
-            "generated_at": datetime.now().strftime("%Y-%m-%d %H:%M:%S"),
+            "generated_at": datetime.now(timezone.utc).strftime("%Y-%m-%d %H:%M:%S"),
             "dre": {
                 "1_receita_bruta": round(gross_revenue, 2),
                 "2_deducoes_e_impostos": round(deductions, 2),
@@ -213,7 +215,7 @@ class BusinessReportingEngine(Skill):
 
         return {
             "report_name": "Resumo de KPIs Executivos",
-            "generated_at": datetime.now().strftime("%Y-%m-%d %H:%M:%S"),
+            "generated_at": datetime.now(timezone.utc).strftime("%Y-%m-%d %H:%M:%S"),
             "kpis": {
                 "gross_revenue": dre["1_receita_bruta"],
                 "net_profit": dre["7_lucro_operacional_liquido"],
@@ -231,7 +233,7 @@ class BusinessReportingEngine(Skill):
         """Gera painel consolidado com todos os indicadores gerenciais."""
         return {
             "report_name": "Painel Consolidado de Negócios",
-            "generated_at": datetime.now().strftime("%Y-%m-%d %H:%M:%S"),
+            "generated_at": datetime.now(timezone.utc).strftime("%Y-%m-%d %H:%M:%S"),
             "kpis": self.generate_kpi_dashboard_metrics(data)["kpis"],
             "dre": self.generate_dre_report(data)["dre"],
             "accounts": self.generate_accounts_report(data)["summary"],

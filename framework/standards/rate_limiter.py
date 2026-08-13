@@ -6,7 +6,7 @@ Version: 1.0.0
 import time
 from collections import defaultdict
 from threading import Lock
-from typing import Dict, Tuple
+from typing import Dict, Optional, Tuple
 
 
 class RateLimiter:
@@ -33,8 +33,9 @@ class RateLimiter:
             remaining = self.max_requests - len(self._hits[key])
             return True, remaining
 
-    def reset(self, key: str = None) -> None:
+    def reset(self, key: Optional[str] = None) -> None:
         with self._lock:
+
             if key:
                 self._hits.pop(key, None)
             else:

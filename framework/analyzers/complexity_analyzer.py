@@ -5,7 +5,7 @@ Version: 1.0.0
 
 import re
 from pathlib import Path
-from typing import Dict, Any
+from typing import Any, Dict
 
 
 class ComplexityAnalyzer:
@@ -37,7 +37,8 @@ class ComplexityAnalyzer:
             return {"file": str(path), "error": "cannot read"}
 
         lines = content.splitlines()
-        non_blank = [l for l in lines if l.strip()]
+        non_blank = [line for line in lines if line.strip()]
+
 
         return {
             "file": str(path),

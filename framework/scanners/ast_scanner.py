@@ -5,8 +5,7 @@ Version: 1.0.0
 
 import ast
 import re
-from pathlib import Path
-from typing import Any, Dict, List, Optional, Tuple, Union
+from typing import Any, Dict, List, Optional, Union
 
 
 class ASTScanner:
@@ -20,12 +19,14 @@ class ASTScanner:
         self.keep_docstrings = keep_docstrings
         self.max_docstring_lines = max_docstring_lines
 
-    def parse_ast(self, code: str) -> Optional[ast.AST]:
+    def parse_ast(self, code: str) -> Optional[ast.Module]:
         """Safely parses code into an AST tree."""
         try:
-            return ast.parse(code)
+            tree = ast.parse(code)
+            return tree if isinstance(tree, ast.Module) else None
         except SyntaxError:
             return None
+
 
     def get_symbols_overview(self, code: str, file_path: str = "") -> str:
         """
@@ -199,18 +200,20 @@ class ASTScanner:
     # --- Internal Helpers ---
 
     def _get_raw_node_text(self, node: ast.AST, lines: List[str]) -> str:
-        start = node.lineno - 1
-        end = getattr(node, "end_lineno", node.lineno)
+        start = getattr(node, "lineno", 1) - 1
+        end = getattr(node, "end_lineno", getattr(node, "lineno", len(lines)))
         return "\n".join(lines[start:end])
 
     def _get_full_node_source(self, node: ast.AST, lines: List[str]) -> str:
         # Include decorators if present
-        start_line = node.lineno
-        if hasattr(node, "decorator_list") and node.decorator_list:
-            start_line = min(d.lineno for d in node.decorator_list)
+        start_line = getattr(node, "lineno", 1)
+        decorator_list = getattr(node, "decorator_list", [])
+        if decorator_list:
+            start_line = min(getattr(d, "lineno", start_line) for d in decorator_list)
 
-        end_line = getattr(node, "end_lineno", node.lineno)
+        end_line = getattr(node, "end_lineno", getattr(node, "lineno", len(lines)))
         return "\n".join(lines[start_line - 1 : end_line])
+
 
     def _get_signature_header(self, node: Union[ast.FunctionDef, ast.AsyncFunctionDef], lines: List[str]) -> str:
         # Extract lines from first decorator or def line up to ':' before body

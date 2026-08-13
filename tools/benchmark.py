@@ -11,8 +11,7 @@ from pathlib import Path
 ROOT = Path(__file__).resolve().parent.parent
 sys.path.insert(0, str(ROOT))
 
-from framework import create_default_orchestrator, Context
-from framework.core import MetricsCollector
+from framework import Context, create_default_orchestrator
 
 
 def benchmark(name: str, func, iterations: int = 1000) -> dict:

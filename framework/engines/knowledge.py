@@ -5,8 +5,9 @@ Version: 1.1.0
 
 import json
 from pathlib import Path
-from typing import List, Dict, Any, Optional
-from ..core import Skill, SkillResult, SkillStatus, Context
+from typing import Any, Dict, List, Optional
+
+from ..core import Context, Skill, SkillResult, SkillStatus
 
 
 class KnowledgeEngine(Skill):

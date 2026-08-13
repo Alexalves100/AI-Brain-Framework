@@ -5,7 +5,7 @@ Version: 1.0.0
 
 import re
 from pathlib import Path
-from typing import Dict, Any
+from typing import Any, Dict
 
 
 class QualityAnalyzer:

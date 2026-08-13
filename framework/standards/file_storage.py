@@ -6,7 +6,8 @@ prevenindo vulnerabilidades como Path Traversal, Execução Indesejada e DoS por
 import os
 import re
 from pathlib import Path
-from typing import Dict, Any, List, Optional, Tuple, Set
+from typing import Optional, Set, Tuple
+
 
 class FileStorageManager:
     """Gerenciador seguro de arquivos e uploads."""

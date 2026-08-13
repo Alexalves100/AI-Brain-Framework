@@ -5,8 +5,9 @@ Version: 1.2.0
 
 import re
 from pathlib import Path
-from typing import List, Dict, Any
-from ..core import Skill, SkillResult, SkillStatus, Context
+from typing import Any, Dict, List
+
+from ..core import Context, Skill, SkillResult, SkillStatus
 from ..scanners.ast_scanner import ASTScanner
 
 
@@ -64,8 +65,9 @@ class DiscoveryEngine(Skill):
         )
 
     def _scan(self, root: Path, pattern_type: str) -> List[Path]:
-        files = []
+        files: List[Path] = []
         skip_dirs = {".git", "__pycache__", "node_modules", ".venv", "venv"}
+
 
         try:
             iterator = root.rglob("*")

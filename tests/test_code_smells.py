@@ -11,7 +11,6 @@ sys.path.insert(0, str(ROOT))
 
 from framework.analyzers.code_smells import CodeSmellDetector
 
-
 CLEAN_CODE_SAMPLE = '''"""Pristine Senior-Level Service."""
 
 from typing import Optional, Dict, Any

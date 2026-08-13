@@ -12,7 +12,7 @@ from pathlib import Path
 ROOT = Path(__file__).resolve().parent.parent
 sys.path.insert(0, str(ROOT))
 
-from framework import create_default_orchestrator, Context
+from framework import Context, create_default_orchestrator
 
 
 def cmd_analyze(args):

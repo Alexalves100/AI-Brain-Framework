@@ -9,7 +9,8 @@ import hmac
 import json
 import os
 import time
-from typing import Dict, Any, Optional
+from typing import Any, Dict, Optional
+
 
 class JWTAuth:
     """Gerenciamento e assinatura de JSON Web Tokens (JWT)."""
@@ -36,7 +37,7 @@ class JWTAuth:
         header_b64 = self._b64_encode(json.dumps(header, separators=(",", ":")).encode("utf-8"))
         claims_b64 = self._b64_encode(json.dumps(claims, separators=(",", ":")).encode("utf-8"))
 
-        signing_input = f"{header_b64}.{claims_b64}".encode("utf-8")
+        signing_input = f"{header_b64}.{claims_b64}".encode()
         signature = hmac.new(self.secret_key, signing_input, hashlib.sha256).digest()
         signature_b64 = self._b64_encode(signature)
 
@@ -50,7 +51,7 @@ class JWTAuth:
                 return None
 
             header_b64, claims_b64, signature_b64 = parts
-            signing_input = f"{header_b64}.{claims_b64}".encode("utf-8")
+            signing_input = f"{header_b64}.{claims_b64}".encode()
             expected_sig = hmac.new(self.secret_key, signing_input, hashlib.sha256).digest()
             expected_sig_b64 = self._b64_encode(expected_sig)
 

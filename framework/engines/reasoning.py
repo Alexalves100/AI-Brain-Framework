@@ -3,8 +3,9 @@ Reasoning Engine — structured reasoning with explicit premises
 Version: 1.0.0
 """
 
-from typing import List, Dict, Any
-from ..core import Skill, SkillResult, SkillStatus, Context
+from typing import List
+
+from ..core import Context, Skill, SkillResult, SkillStatus
 
 
 class ReasoningEngine(Skill):

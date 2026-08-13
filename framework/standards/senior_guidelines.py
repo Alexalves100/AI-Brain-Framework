@@ -3,7 +3,7 @@ Senior Developer Guidelines and Clean Code Standards
 Version: 1.0.0
 """
 
-from typing import Dict, List, Any
+from typing import Any, Dict, List
 
 
 class SeniorGuidelines:
@@ -12,7 +12,7 @@ class SeniorGuidelines:
     inspired by awesome-cursorrules, Aider, and Sourcery.
     """
 
-    RULES = {
+    RULES: Dict[str, Dict[str, Any]] = {
         "SRP_SINGLE_RESPONSIBILITY": {
             "id": "SRP-001",
             "name": "Single Responsibility Principle",
@@ -65,6 +65,8 @@ class SeniorGuidelines:
     def get_rules_list(cls) -> List[Dict[str, Any]]:
         """Returns all configured senior rules."""
         return list(cls.RULES.values())
+
+
 
     @classmethod
     def get_prompt_constraints(cls) -> List[str]:

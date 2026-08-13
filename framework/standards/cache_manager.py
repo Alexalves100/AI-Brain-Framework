@@ -3,9 +3,10 @@ Cache Manager Module.
 Gerencia cache em memória com suporte a expiração TTL (Time To Live),
 métricas de Hit/Miss e política de invalidação sem dependências externas.
 """
-import time
 import threading
-from typing import Any, Dict, Optional, Tuple, Callable
+import time
+from typing import Any, Callable, Dict, Optional, Tuple
+
 
 class CacheManager:
     """Gerenciador de cache em memória thread-safe com suporte a TTL."""

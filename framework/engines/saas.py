@@ -3,8 +3,9 @@ Engine SaaS Multi-Tenant.
 Gerencia resolução de tenants, isolamento de dados, controle de planos/quotas
 e Feature Flags por tenant em aplicações SaaS.
 """
-from typing import Dict, Any, Optional, Set
 import threading
+from typing import Any, Dict, Optional, Set
+
 
 class TenantContext:
     """Representa o contexto isolado de um tenant."""

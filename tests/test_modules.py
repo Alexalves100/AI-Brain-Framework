@@ -1,19 +1,19 @@
 """Tests for scanners, analyzers, builders, governance, prompts, schemas."""
 
 import sys
-import unittest
 import tempfile
+import unittest
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parent.parent
 sys.path.insert(0, str(ROOT))
 
+from framework.analyzers import ComplexityAnalyzer, MetricsAnalyzer, QualityAnalyzer
+from framework.builders import ConfigBuilder, ModuleBuilder, ProjectBuilder
+from framework.governance import AuditLog, ComplianceChecker, PolicyEngine
+from framework.prompts import PromptBuilder, PromptRegistry
 from framework.scanners import CodeScanner, DependencyScanner, StructureScanner
-from framework.analyzers import ComplexityAnalyzer, QualityAnalyzer, MetricsAnalyzer
-from framework.builders import ProjectBuilder, ModuleBuilder, ConfigBuilder
-from framework.governance import PolicyEngine, AuditLog, ComplianceChecker
-from framework.prompts import PromptRegistry, PromptBuilder
-from framework.schemas import SchemaValidator, SchemaRegistry
+from framework.schemas import SchemaRegistry, SchemaValidator
 
 
 class TestCodeScanner(unittest.TestCase):

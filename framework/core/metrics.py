@@ -5,8 +5,8 @@ Version: 1.0.0
 
 import time
 from contextlib import contextmanager
-from dataclasses import dataclass, field
-from typing import Dict, List
+from dataclasses import dataclass
+from typing import Dict
 
 
 @dataclass

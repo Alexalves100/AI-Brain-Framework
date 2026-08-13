@@ -5,8 +5,8 @@ Version: 1.1.0
 
 import ast
 import re
-from typing import Any, Dict, List, Optional
-from ..core import Skill, SkillResult, SkillStatus, Context
+
+from ..core import Context, Skill, SkillResult, SkillStatus
 from ..scanners.ast_scanner import ASTScanner
 
 

@@ -5,7 +5,7 @@ Version: 1.0.0
 
 import re
 from pathlib import Path
-from typing import List, Dict, Any
+from typing import Any, Dict, List, Optional
 
 
 class CodeScanner:
@@ -32,7 +32,7 @@ class CodeScanner:
     }
 
     def scan_file(self, path: Path) -> List[Dict[str, Any]]:
-        findings = []
+        findings: List[Dict[str, Any]] = []
         try:
             content = path.read_text(encoding="utf-8", errors="ignore")
         except Exception:
@@ -50,12 +50,12 @@ class CodeScanner:
                     })
         return findings
 
-    def scan_directory(self, root: str = ".", extensions: List[str] = None) -> Dict[str, Any]:
-        extensions = extensions or [".py", ".js", ".ts"]
+    def scan_directory(self, root: str = ".", extensions: Optional[List[str]] = None) -> Dict[str, Any]:
+        exts = extensions or [".py", ".js", ".ts"]
         root_path = Path(root)
         skip = {".git", "__pycache__", "node_modules", ".venv", "venv"}
 
-        all_findings = []
+        all_findings: List[Dict[str, Any]] = []
         files_scanned = 0
 
         for path in root_path.rglob("*"):
@@ -63,7 +63,7 @@ class CodeScanner:
                 continue
             if any(p in path.parts for p in skip):
                 continue
-            if path.suffix not in extensions:
+            if path.suffix not in exts:
                 continue
             files_scanned += 1
             all_findings.extend(self.scan_file(path))

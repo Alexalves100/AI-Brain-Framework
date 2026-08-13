@@ -48,7 +48,7 @@ class SchemaValidator:
         return errors
 
     def _check_type(self, data: Any, expected: str) -> bool:
-        type_map = {
+        type_map: Dict[str, Any] = {
             "string": str,
             "integer": int,
             "number": (int, float),
@@ -58,8 +58,12 @@ class SchemaValidator:
             "null": type(None),
         }
         if expected in type_map:
-            return isinstance(data, type_map[expected])
+            target_type = type_map[expected]
+            if isinstance(target_type, tuple):
+                return isinstance(data, target_type)
+            return isinstance(data, target_type)
         return True
+
 
     def is_valid(self, data: Any, schema: Dict[str, Any]) -> bool:
         return len(self.validate(data, schema)) == 0

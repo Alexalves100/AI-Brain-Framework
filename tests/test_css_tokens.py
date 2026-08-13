@@ -1,5 +1,7 @@
 import unittest
+
 from framework.standards import CSSTokens
+
 
 class TestCSSTokens(unittest.TestCase):
 

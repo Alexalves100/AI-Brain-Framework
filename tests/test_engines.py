@@ -10,11 +10,11 @@ sys.path.insert(0, str(ROOT))
 from framework.core import Context, SkillStatus
 from framework.engines import (
     BrainEngine,
+    MemoryEngine,
     SecurityEngine,
     TokenEconomyEngine,
-    MemoryEngine,
 )
-from framework.standards import SecurityHeaders, InputValidator
+from framework.standards import InputValidator, SecurityHeaders
 
 
 class TestBrainEngine(unittest.TestCase):

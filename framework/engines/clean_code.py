@@ -3,11 +3,11 @@ Clean Code Engine — enforces senior-level clean code standards & self-healing 
 Version: 1.0.0
 """
 
-from typing import Any, Dict, Optional
-from ..core import Skill, SkillResult, SkillStatus, Context
+from typing import Any, Dict
+
 from ..analyzers.code_smells import CodeSmellDetector
+from ..core import Context, Skill, SkillResult, SkillStatus
 from ..prompts.senior_prompts import SeniorPromptTemplates
-from ..standards.senior_guidelines import SeniorGuidelines
 
 
 class CleanCodeEngine(Skill):

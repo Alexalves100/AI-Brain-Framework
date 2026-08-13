@@ -3,8 +3,9 @@ Brain Engine — central cognitive orchestration
 Version: 1.0.0
 """
 
-from typing import Dict, Any
-from ..core import Skill, SkillResult, SkillStatus, Context
+from typing import Dict
+
+from ..core import Context, Skill, SkillResult, SkillStatus
 
 
 class BrainEngine(Skill):
@@ -33,8 +34,9 @@ class BrainEngine(Skill):
         for category, words in self.KEYWORDS.items():
             scores[category] = sum(1 for w in words if w in query)
 
-        routed_to = max(scores, key=scores.get) if any(scores.values()) else "general"
+        routed_to = max(scores, key=lambda k: scores[k]) if any(scores.values()) else "general"
         context.set("routed_category", routed_to)
+
         context.set("category_scores", scores)
 
         return SkillResult(
