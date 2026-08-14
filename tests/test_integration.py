@@ -37,7 +37,7 @@ class TestFullPipeline(unittest.TestCase):
     def test_all_engines_registered(self):
         orch = create_default_orchestrator()
         names = [s.name for s in orch.registry.list()]
-        self.assertEqual(len(names), 8)
+        self.assertEqual(len(names), 9)
         self.assertIn("brain", names)
         self.assertIn("security", names)
         self.assertIn("token_economy", names)
@@ -46,6 +46,8 @@ class TestFullPipeline(unittest.TestCase):
         self.assertIn("reasoning", names)
         self.assertIn("discovery", names)
         self.assertIn("ui_design", names)
+        self.assertIn("prompt_shield", names)
+
 
     def test_pipeline_stops_on_error(self):
         from framework.core import Skill, SkillResult, SkillStatus

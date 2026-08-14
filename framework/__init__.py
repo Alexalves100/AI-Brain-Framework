@@ -16,12 +16,14 @@ from .engines import (
     DiscoveryEngine,
     KnowledgeEngine,
     MemoryEngine,
+    PromptShieldEngine,
     ReasoningEngine,
     SecurityEngine,
     TokenEconomyEngine,
     UIDesignEngine,
 )
 from .governance import AuditLog, ComplianceChecker, PolicyEngine
+from .guardrails import DialogRails, InjectionDetector, OutputGuard, PIIShield, ToolSandbox
 from .mcp import JsonRpcMessage, MCPServer, MCPToolRegistry
 from .prompts import PromptBuilder, PromptRegistry, SeniorPromptTemplates
 from .scanners import ASTScanner, CodeScanner, DependencyScanner, StructureScanner
@@ -40,7 +42,9 @@ def create_default_orchestrator() -> Orchestrator:
     registry.register(ReasoningEngine())
     registry.register(DiscoveryEngine())
     registry.register(UIDesignEngine())
+    registry.register(PromptShieldEngine())
     return Orchestrator(registry)
+
 
 
 __all__ = [
@@ -59,6 +63,7 @@ __all__ = [
     "DiscoveryEngine",
     "UIDesignEngine",
     "CleanCodeEngine",
+    "PromptShieldEngine",
     "SecurityHeaders",
     "InputValidator",
     "SeniorGuidelines",
@@ -70,6 +75,11 @@ __all__ = [
     "QualityAnalyzer",
     "MetricsAnalyzer",
     "CodeSmellDetector",
+    "InjectionDetector",
+    "PIIShield",
+    "DialogRails",
+    "ToolSandbox",
+    "OutputGuard",
     "ProjectBuilder",
     "ModuleBuilder",
     "ConfigBuilder",
@@ -86,5 +96,6 @@ __all__ = [
     "JsonRpcMessage",
     "create_default_orchestrator",
 ]
+
 
 

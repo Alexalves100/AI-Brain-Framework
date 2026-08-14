@@ -62,7 +62,9 @@ packages = [
     "framework.schemas",
     "framework.templates",
     "framework.mcp",
+    "framework.guardrails",
 ]
+
 
 
 [tool.setuptools.package-data]

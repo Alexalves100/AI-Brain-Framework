@@ -9,6 +9,7 @@ from ..analyzers.code_smells import CodeSmellDetector
 from ..analyzers.complexity_analyzer import ComplexityAnalyzer
 from ..core.context import Context
 from ..engines.clean_code import CleanCodeEngine
+from ..engines.prompt_shield import PromptShieldEngine
 from ..engines.security import SecurityEngine
 from ..engines.token_economy import TokenEconomyEngine
 from ..scanners.ast_scanner import ASTScanner
@@ -24,6 +25,8 @@ class MCPToolRegistry:
         self.security_engine = SecurityEngine()
         self.token_economy_engine = TokenEconomyEngine()
         self.complexity_analyzer = ComplexityAnalyzer()
+        self.prompt_shield_engine = PromptShieldEngine()
+
 
     def get_tool_definitions(self) -> List[Dict[str, Any]]:
         """Returns the MCP tools specification array."""
@@ -143,6 +146,25 @@ class MCPToolRegistry:
                     "required": ["code"],
                 },
             },
+            {
+                "name": "prompt_shield_scan",
+                "description": "Scans and sanitizes user prompts against Prompt Injection, Jailbreak, persona subversion, and PII/LGPD secrets (CPF, credit cards, API keys).",
+                "inputSchema": {
+                    "type": "object",
+                    "properties": {
+                        "prompt": {
+                            "type": "string",
+                            "description": "The user prompt to scan and sanitize",
+                        },
+                        "action": {
+                            "type": "string",
+                            "enum": ["enforce", "mask", "audit"],
+                            "description": "Action policy: enforce (blocks on high risk), mask (anonymizes PII), audit (inspects only)",
+                        },
+                    },
+                    "required": ["prompt"],
+                },
+            },
         ]
 
     def execute_tool(self, name: str, arguments: Dict[str, Any]) -> Dict[str, Any]:
@@ -155,6 +177,7 @@ class MCPToolRegistry:
             "compress_tokens": self._handle_compress_tokens,
             "analyze_complexity": self._handle_analyze_complexity,
             "list_symbols": self._handle_list_symbols,
+            "prompt_shield_scan": self._handle_prompt_shield_scan,
         }
 
         handler = handlers.get(name)
@@ -162,6 +185,7 @@ class MCPToolRegistry:
             raise ValueError(f"Unknown tool: '{name}'")
 
         return handler(arguments)
+
 
     def _handle_clean_code_audit(self, args: Dict[str, Any]) -> Dict[str, Any]:
         code = args.get("code", "")
@@ -228,3 +252,13 @@ class MCPToolRegistry:
         code = args.get("code", "")
         symbols = self.ast_scanner.list_symbols(code)
         return {"symbols": symbols, "total_symbols": len(symbols)}
+
+    def _handle_prompt_shield_scan(self, args: Dict[str, Any]) -> Dict[str, Any]:
+        prompt = args.get("prompt", "")
+        action = args.get("action", "enforce")
+        ctx = Context()
+        ctx.set("prompt", prompt)
+        ctx.set("action", action)
+        res = self.prompt_shield_engine.run(ctx)
+        return res.output
+

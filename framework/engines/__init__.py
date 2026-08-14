@@ -9,6 +9,7 @@ from .clean_code import CleanCodeEngine
 from .discovery import DiscoveryEngine
 from .knowledge import KnowledgeEngine
 from .memory import MemoryEngine
+from .prompt_shield import PromptShieldEngine
 from .reasoning import ReasoningEngine
 from .saas import SaaSManager, TenantContext
 from .security import SecurityEngine
@@ -28,7 +29,9 @@ __all__ = [
     "TenantContext",
     "BusinessReportingEngine",
     "CleanCodeEngine",
+    "PromptShieldEngine",
 ]
+
 
 
 
