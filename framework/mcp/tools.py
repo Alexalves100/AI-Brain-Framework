@@ -12,6 +12,7 @@ from ..engines.clean_code import CleanCodeEngine
 from ..engines.prompt_shield import PromptShieldEngine
 from ..engines.security import SecurityEngine
 from ..engines.token_economy import TokenEconomyEngine
+from ..patchers.code_patcher import SurgicalCodePatcher
 from ..scanners.ast_scanner import ASTScanner
 
 
@@ -26,6 +27,8 @@ class MCPToolRegistry:
         self.token_economy_engine = TokenEconomyEngine()
         self.complexity_analyzer = ComplexityAnalyzer()
         self.prompt_shield_engine = PromptShieldEngine()
+        self.code_patcher = SurgicalCodePatcher()
+
 
 
     def get_tool_definitions(self) -> List[Dict[str, Any]]:
@@ -165,6 +168,41 @@ class MCPToolRegistry:
                     "required": ["prompt"],
                 },
             },
+            {
+                "name": "apply_surgical_patch",
+                "description": "Surgically applies code modifications using AST replacement, Search/Replace fuzzy blocks, or Unified Diffs with automatic syntax validation and rollback.",
+                "inputSchema": {
+                    "type": "object",
+                    "properties": {
+                        "code": {
+                            "type": "string",
+                            "description": "Source code string to patch (if in-memory)",
+                        },
+                        "file_path": {
+                            "type": "string",
+                            "description": "Target file path on disk (if patching physical file)",
+                        },
+                        "patch_data": {
+                            "type": "string",
+                            "description": "The patch content: SEARCH/REPLACE blocks, Unified Diff, or replacement code",
+                        },
+                        "strategy": {
+                            "type": "string",
+                            "enum": ["auto", "ast_node", "search_replace", "unified_diff"],
+                            "description": "Patch strategy to use. Default is 'auto'.",
+                        },
+                        "symbol_name": {
+                            "type": "string",
+                            "description": "Target class/function/method symbol path (e.g. 'AuthService.login') when using ast_node strategy",
+                        },
+                        "dry_run": {
+                            "type": "boolean",
+                            "description": "If true, simulates the patch and returns diff without modifying disk",
+                        },
+                    },
+                    "required": ["patch_data"],
+                },
+            },
         ]
 
     def execute_tool(self, name: str, arguments: Dict[str, Any]) -> Dict[str, Any]:
@@ -178,7 +216,9 @@ class MCPToolRegistry:
             "analyze_complexity": self._handle_analyze_complexity,
             "list_symbols": self._handle_list_symbols,
             "prompt_shield_scan": self._handle_prompt_shield_scan,
+            "apply_surgical_patch": self._handle_apply_surgical_patch,
         }
+
 
         handler = handlers.get(name)
         if not handler:
@@ -261,4 +301,36 @@ class MCPToolRegistry:
         ctx.set("action", action)
         res = self.prompt_shield_engine.run(ctx)
         return res.output
+
+    def _handle_apply_surgical_patch(self, args: Dict[str, Any]) -> Dict[str, Any]:
+        file_path = args.get("file_path")
+        code = args.get("code")
+        patch_data = args.get("patch_data", "")
+        strategy = args.get("strategy", "auto")
+        symbol_name = args.get("symbol_name")
+        dry_run = bool(args.get("dry_run", False))
+
+        if file_path:
+            res = self.code_patcher.patch_file(
+                file_path=file_path,
+                patch_data=patch_data,
+                strategy=strategy,
+                symbol_name=symbol_name,
+                dry_run=dry_run,
+            )
+        elif code is not None:
+            res = self.code_patcher.patch_string(
+                source_code=code,
+                patch_data=patch_data,
+                strategy=strategy,
+                symbol_name=symbol_name,
+            )
+        else:
+            return {
+                "success": False,
+                "error": "Either 'file_path' or 'code' must be provided.",
+            }
+
+        return res.to_dict()
+
 

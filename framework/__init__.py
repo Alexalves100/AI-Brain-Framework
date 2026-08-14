@@ -24,6 +24,7 @@ from .core import (
 from .engines import (
     BrainEngine,
     CleanCodeEngine,
+    CodePatcherEngine,
     DiscoveryEngine,
     KnowledgeEngine,
     MemoryEngine,
@@ -36,6 +37,7 @@ from .engines import (
 from .governance import AuditLog, ComplianceChecker, PolicyEngine
 from .guardrails import DialogRails, InjectionDetector, OutputGuard, PIIShield, ToolSandbox
 from .mcp import JsonRpcMessage, MCPServer, MCPToolRegistry
+from .patchers import ASTPatcher, DiffApplier, FuzzyMatcher, PatchResult, SurgicalCodePatcher
 from .prompts import PromptBuilder, PromptRegistry, SeniorPromptTemplates
 from .scanners import ASTScanner, CodeScanner, DependencyScanner, StructureScanner
 from .schemas import SchemaRegistry, SchemaValidator
@@ -54,7 +56,9 @@ def create_default_orchestrator() -> Orchestrator:
     registry.register(DiscoveryEngine())
     registry.register(UIDesignEngine())
     registry.register(PromptShieldEngine())
+    registry.register(CodePatcherEngine())
     return Orchestrator(registry)
+
 
 
 
@@ -80,8 +84,15 @@ __all__ = [
     "UIDesignEngine",
     "CleanCodeEngine",
     "PromptShieldEngine",
+    "CodePatcherEngine",
+    "SurgicalCodePatcher",
+    "ASTPatcher",
+    "FuzzyMatcher",
+    "DiffApplier",
+    "PatchResult",
     "SecurityHeaders",
     "InputValidator",
+
     "SeniorGuidelines",
     "CodeScanner",
     "DependencyScanner",

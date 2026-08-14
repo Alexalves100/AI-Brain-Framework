@@ -6,6 +6,7 @@ Version: 1.0.0
 from .brain import BrainEngine
 from .business_reporting import BusinessReportingEngine
 from .clean_code import CleanCodeEngine
+from .code_patcher import CodePatcherEngine
 from .discovery import DiscoveryEngine
 from .knowledge import KnowledgeEngine
 from .memory import MemoryEngine
@@ -30,7 +31,9 @@ __all__ = [
     "BusinessReportingEngine",
     "CleanCodeEngine",
     "PromptShieldEngine",
+    "CodePatcherEngine",
 ]
+
 
 
 
