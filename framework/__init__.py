@@ -9,7 +9,18 @@ __author__ = "AI-Brain-Framework"
 
 from .analyzers import CodeSmellDetector, ComplexityAnalyzer, MetricsAnalyzer, QualityAnalyzer
 from .builders import ConfigBuilder, ModuleBuilder, ProjectBuilder
-from .core import Context, Orchestrator, Skill, SkillRegistry, SkillResult, SkillStatus
+from .core import (
+    Context,
+    CyclicDependencyError,
+    DAGExecutionResult,
+    DAGNode,
+    Orchestrator,
+    Skill,
+    SkillRegistry,
+    SkillResult,
+    SkillStatus,
+    WorkflowDAG,
+)
 from .engines import (
     BrainEngine,
     CleanCodeEngine,
@@ -49,11 +60,16 @@ def create_default_orchestrator() -> Orchestrator:
 
 __all__ = [
     "Orchestrator",
+    "DAGExecutionResult",
+    "DAGNode",
+    "WorkflowDAG",
+    "CyclicDependencyError",
     "SkillRegistry",
     "Context",
     "Skill",
     "SkillResult",
     "SkillStatus",
+
     "BrainEngine",
     "SecurityEngine",
     "TokenEconomyEngine",
