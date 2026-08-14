@@ -124,9 +124,12 @@ python examples/graphql/app.py          # http://localhost:8003
 | `governance` | PolicyEngine, AuditLog, ComplianceChecker |
 | `prompts` | PromptRegistry, PromptBuilder, SeniorPromptTemplates |
 | `schemas` | SchemaValidator, SchemaRegistry |
+| `mcp` | MCPServer, MCPToolRegistry, JsonRpcMessage |
 
+> 📖 **Servidor MCP Nativo (Cursor, Claude, Windsurf):** Veja [docs/mcp_server.md](docs/mcp_server.md) (Integração direta com IDEs).  
 > 📖 **Otimização de Tokens (Serena MCP style):** Veja [docs/token_economy.md](docs/token_economy.md) (70% a 90% de economia).  
 > 📖 **Padrão Sênior & Clean Code (Aider/Sourcery style):** Veja [docs/clean_code.md](docs/clean_code.md) (Guardrails e Self-Healing).
+
 
 ---
 

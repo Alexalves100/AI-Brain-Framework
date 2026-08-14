@@ -22,6 +22,7 @@ from .engines import (
     UIDesignEngine,
 )
 from .governance import AuditLog, ComplianceChecker, PolicyEngine
+from .mcp import JsonRpcMessage, MCPServer, MCPToolRegistry
 from .prompts import PromptBuilder, PromptRegistry, SeniorPromptTemplates
 from .scanners import ASTScanner, CodeScanner, DependencyScanner, StructureScanner
 from .schemas import SchemaRegistry, SchemaValidator
@@ -80,6 +81,10 @@ __all__ = [
     "SeniorPromptTemplates",
     "SchemaValidator",
     "SchemaRegistry",
+    "MCPServer",
+    "MCPToolRegistry",
+    "JsonRpcMessage",
     "create_default_orchestrator",
 ]
+
 

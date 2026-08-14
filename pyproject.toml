@@ -46,6 +46,7 @@ Issues = "https://github.com/ai-brain-framework/ai-brain-framework/issues"
 
 [project.scripts]
 ai-brain = "tools.cli:main"
+ai-brain-mcp = "tools.mcp_server:main"
 
 [tool.setuptools]
 packages = [
@@ -60,7 +61,9 @@ packages = [
     "framework.prompts",
     "framework.schemas",
     "framework.templates",
+    "framework.mcp",
 ]
+
 
 [tool.setuptools.package-data]
 framework = ["py.typed"]
