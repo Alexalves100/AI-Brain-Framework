@@ -37,7 +37,7 @@ class TestFullPipeline(unittest.TestCase):
     def test_all_engines_registered(self):
         orch = create_default_orchestrator()
         names = [s.name for s in orch.registry.list()]
-        self.assertEqual(len(names), 10)
+        self.assertEqual(len(names), 11)
         self.assertIn("brain", names)
         self.assertIn("security", names)
         self.assertIn("token_economy", names)
@@ -48,6 +48,8 @@ class TestFullPipeline(unittest.TestCase):
         self.assertIn("ui_design", names)
         self.assertIn("prompt_shield", names)
         self.assertIn("code_patcher", names)
+        self.assertIn("fullstack_ui", names)
+
 
 
 

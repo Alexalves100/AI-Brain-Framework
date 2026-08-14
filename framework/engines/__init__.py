@@ -8,6 +8,7 @@ from .business_reporting import BusinessReportingEngine
 from .clean_code import CleanCodeEngine
 from .code_patcher import CodePatcherEngine
 from .discovery import DiscoveryEngine
+from .fullstack_ui import FullstackUIEngine
 from .knowledge import KnowledgeEngine
 from .memory import MemoryEngine
 from .prompt_shield import PromptShieldEngine
@@ -32,7 +33,9 @@ __all__ = [
     "CleanCodeEngine",
     "PromptShieldEngine",
     "CodePatcherEngine",
+    "FullstackUIEngine",
 ]
+
 
 
 

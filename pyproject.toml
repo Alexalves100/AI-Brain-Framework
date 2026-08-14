@@ -64,7 +64,9 @@ packages = [
     "framework.mcp",
     "framework.guardrails",
     "framework.patchers",
+    "framework.frontend",
 ]
+
 
 
 

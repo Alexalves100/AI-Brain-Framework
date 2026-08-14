@@ -26,6 +26,7 @@ from .engines import (
     CleanCodeEngine,
     CodePatcherEngine,
     DiscoveryEngine,
+    FullstackUIEngine,
     KnowledgeEngine,
     MemoryEngine,
     PromptShieldEngine,
@@ -33,6 +34,14 @@ from .engines import (
     SecurityEngine,
     TokenEconomyEngine,
     UIDesignEngine,
+)
+from .frontend import (
+    A11yAuditor,
+    A11yAuditResult,
+    A11yViolation,
+    APIClientGenerator,
+    ComponentBuilder,
+    DesignTokens,
 )
 from .governance import AuditLog, ComplianceChecker, PolicyEngine
 from .guardrails import DialogRails, InjectionDetector, OutputGuard, PIIShield, ToolSandbox
@@ -57,7 +66,9 @@ def create_default_orchestrator() -> Orchestrator:
     registry.register(UIDesignEngine())
     registry.register(PromptShieldEngine())
     registry.register(CodePatcherEngine())
+    registry.register(FullstackUIEngine())
     return Orchestrator(registry)
+
 
 
 
@@ -85,6 +96,13 @@ __all__ = [
     "CleanCodeEngine",
     "PromptShieldEngine",
     "CodePatcherEngine",
+    "FullstackUIEngine",
+    "DesignTokens",
+    "ComponentBuilder",
+    "A11yAuditor",
+    "A11yAuditResult",
+    "A11yViolation",
+    "APIClientGenerator",
     "SurgicalCodePatcher",
     "ASTPatcher",
     "FuzzyMatcher",
@@ -92,6 +110,7 @@ __all__ = [
     "PatchResult",
     "SecurityHeaders",
     "InputValidator",
+
 
     "SeniorGuidelines",
     "CodeScanner",

@@ -9,6 +9,7 @@ from ..analyzers.code_smells import CodeSmellDetector
 from ..analyzers.complexity_analyzer import ComplexityAnalyzer
 from ..core.context import Context
 from ..engines.clean_code import CleanCodeEngine
+from ..engines.fullstack_ui import FullstackUIEngine
 from ..engines.prompt_shield import PromptShieldEngine
 from ..engines.security import SecurityEngine
 from ..engines.token_economy import TokenEconomyEngine
@@ -28,6 +29,8 @@ class MCPToolRegistry:
         self.complexity_analyzer = ComplexityAnalyzer()
         self.prompt_shield_engine = PromptShieldEngine()
         self.code_patcher = SurgicalCodePatcher()
+        self.fullstack_ui_engine = FullstackUIEngine()
+
 
 
 
@@ -203,6 +206,83 @@ class MCPToolRegistry:
                     "required": ["patch_data"],
                 },
             },
+            {
+                "name": "frontend_component_scaffold",
+                "description": "Scaffolds high-end, accessible UI components (Button, Card, Input) in React/Next.js TSX + Tailwind, Vanilla HTML5/CSS, or Vue with full interaction states.",
+                "inputSchema": {
+                    "type": "object",
+                    "properties": {
+                        "component_type": {
+                            "type": "string",
+                            "enum": ["button", "card", "input"],
+                            "description": "Component type to scaffold",
+                        },
+                        "stack": {
+                            "type": "string",
+                            "enum": ["react_tailwind", "vanilla", "vue"],
+                            "description": "Target frontend framework stack",
+                        },
+                        "label": {
+                            "type": "string",
+                            "description": "Component label / text",
+                        },
+                        "title": {
+                            "type": "string",
+                            "description": "Card or modal title",
+                        },
+                        "subtitle": {
+                            "type": "string",
+                            "description": "Card subtitle",
+                        },
+                        "variant": {
+                            "type": "string",
+                            "description": "Visual variant (primary, secondary, destructive, outline, ghost)",
+                        },
+                    },
+                    "required": ["component_type"],
+                },
+            },
+            {
+                "name": "frontend_a11y_audit",
+                "description": "Audits HTML/TSX/CSS code for WCAG 2.1 AA accessibility, Z-index stacking context, and AI design clichés (e.g. purple on dark, untracked large text).",
+                "inputSchema": {
+                    "type": "object",
+                    "properties": {
+                        "code": {
+                            "type": "string",
+                            "description": "The HTML, JSX, TSX, or CSS code to audit",
+                        },
+                        "filename": {
+                            "type": "string",
+                            "description": "Optional filename for context",
+                        },
+                    },
+                    "required": ["code"],
+                },
+            },
+            {
+                "name": "generate_typed_api_client",
+                "description": "Translates backend schema models into TypeScript interfaces, typed Fetch API client functions, and accessible React form components.",
+                "inputSchema": {
+                    "type": "object",
+                    "properties": {
+                        "schema_name": {
+                            "type": "string",
+                            "description": "Name of the model/interface (e.g. 'UserProfile')",
+                        },
+                        "properties": {
+                            "type": "object",
+                            "description": "Dictionary of field definitions with types",
+                        },
+                        "required_fields": {
+                            "type": "array",
+                            "items": {"type": "string"},
+                            "description": "List of mandatory field names",
+                        },
+                    },
+                    "required": ["schema_name", "properties"],
+                },
+            },
         ]
 
     def execute_tool(self, name: str, arguments: Dict[str, Any]) -> Dict[str, Any]:
@@ -217,7 +297,11 @@ class MCPToolRegistry:
             "list_symbols": self._handle_list_symbols,
             "prompt_shield_scan": self._handle_prompt_shield_scan,
             "apply_surgical_patch": self._handle_apply_surgical_patch,
+            "frontend_component_scaffold": self._handle_frontend_component_scaffold,
+            "frontend_a11y_audit": self._handle_frontend_a11y_audit,
+            "generate_typed_api_client": self._handle_generate_typed_api_client,
         }
+
 
 
         handler = handlers.get(name)
@@ -332,5 +416,40 @@ class MCPToolRegistry:
             }
 
         return res.to_dict()
+
+    def _handle_frontend_component_scaffold(self, args: Dict[str, Any]) -> Dict[str, Any]:
+        ctx = Context()
+        ctx.set("action", "component")
+        ctx.set("component_type", args.get("component_type", "button"))
+        ctx.set("stack", args.get("stack", "react_tailwind"))
+        ctx.set("label", args.get("label", "Continuar"))
+        ctx.set("title", args.get("title", "Visão Geral"))
+        ctx.set("subtitle", args.get("subtitle", "Métricas em tempo real"))
+        ctx.set("variant", args.get("variant", "primary"))
+        res = self.fullstack_ui_engine.run(ctx)
+        return res.output
+
+    def _handle_frontend_a11y_audit(self, args: Dict[str, Any]) -> Dict[str, Any]:
+        code = args.get("code", "")
+        filename = args.get("filename", "component.tsx")
+        ctx = Context()
+        ctx.set("action", "audit")
+        ctx.set("code", code)
+        ctx.set("filename", filename)
+        res = self.fullstack_ui_engine.run(ctx)
+        return res.output
+
+    def _handle_generate_typed_api_client(self, args: Dict[str, Any]) -> Dict[str, Any]:
+        schema_name = args.get("schema_name", "Model")
+        properties = args.get("properties", {})
+        required_fields = args.get("required_fields", [])
+        ctx = Context()
+        ctx.set("action", "api_client")
+        ctx.set("schema_name", schema_name)
+        ctx.set("properties", properties)
+        ctx.set("required_fields", required_fields)
+        res = self.fullstack_ui_engine.run(ctx)
+        return res.output
+
 
 
